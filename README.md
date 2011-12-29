@@ -1,33 +1,33 @@
 # GasLoader
-## What's GasLoade?
-- Google Apps Script用のScript Loaderです。
-- Google Docsまたは公開されたサーバ上にあるjavascriptファイルを読み込んでGAS内で利用できるようにします。
+## What's GasLoader?
+- GasLoader is Script Loader for Google Apps Script.
+- GasLoader can load script on url or Google Docs
 
-## 使い方
-### サーバー上にあるファイルを読み込む場合
+## Example
+### load script file on Server
   
-  GasLoader.require("https://raw.github.com/soundTricker/gasmarty-jarty_for_google_apps_script/master/src/jarty.js",null , 0);
+   GasLoader.require("https://raw.github.com/soundTricker/gasmarty-jarty_for_google_apps_script/master/src/jarty.js",null , 0);
   
-  - 第一引数 url
-  - 第二引数 charset 文字コード
-  - 第三引数 cacheSecond スクリプトをキャッシュする時間 0の場合はキャッシュされません。 何も指定しないとデフォルト値でキャッシュされます。
+  - args1 url
+  - args2 charset 
+  - args3 cacheSecond cache time(sec).Set 0 value,if don't need cache. GasLoader set default value,if Set none value.
+### load script file on Google Docs
 
-### Google Docsからファイルを読み込む場合
+    GasLoader.requireFromDocs({key}  , 0);
 
-   GasLoader.requireFromDocs({key}  , 0);
+  - args1 key Google Docs's key
+  - args2 cacheSecond cache time(sec).Set 0 value,if don't need cache. GasLoader set default value,if Set none value.
 
-  - 第一引数 key Google Docsのkey
-  - 第二引数 cacheSecond スクリプトをキャッシュする時間 0の場合はキャッシュされません。何も指定しないとデフォルト値でキャッシュされます。
+### Delete cache.
 
-### キャッシュされたファイルを削除する。
-
-   GasLoader.removeCache({key});
-  - 第一引数 key Google Docsのkey またはurl
+    GasLoader.removeCache({key});
+   
+  - args1 key Google Docs's key or url
   
-## 注意
-- 外部スクリプトを読むのでセキュリティに気をつけてください。
-- 外部から読み込んだファイル側にSpreadsheetなどの認証が必要なAPIへの依存関係がある場合、呼び出し側で同じAPIを呼んでないと、認証ダイアログがでません。
+## Caution
+- Take care and Security,GasLoader load External Script.
+- If there are dependencies that must be authenticated to the API, such as side Spreadsheet files read from the outside, and the caller is not calling the same API, I get no authentication dialog.
 
-## やりたいなぁ
-- 非同期で取ってこれるようにしたいけどAPIないよ。。。
+## Future
+- Async API
 
