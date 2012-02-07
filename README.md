@@ -31,7 +31,3 @@
 You can't known , if loaded script update to The malicious script.
 - If there are dependencies that must be authenticated to the API, such as side Spreadsheet files read from the outside,
  and the caller is not calling the same API, I get no authentication dialog.
-
-## Future
-- Async API
-
